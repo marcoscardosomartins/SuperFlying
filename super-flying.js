@@ -3196,7 +3196,7 @@ p.nominalBounds = new cjs.Rectangle(-50,-50,100,100);
 			updatePoints(pts);
 			showingGameOver = true;
 			//playSoundTag('gameover', true);
-			playSound("gameover");
+			playAudio("gameover");
 			createjs.Tween.get(context, {override:true}).wait(500).to({y:250}, 500, createjs.Ease.quartOut);
 		}
 		
@@ -6028,7 +6028,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 			{
 				context.stopGame();
 				hero.getChildAt(0).gotoAndPlay(1);
-				playSound("pancada");
+				playAudio("pancada");
 				return;
 			}
 		}
@@ -6055,7 +6055,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 							{
 								context.stopGame();
 								hero.getChildAt(0).gotoAndPlay(1);
-								playSound("pancada");
+								playAudio("pancada");
 								break;
 							}
 						} 
@@ -6065,7 +6065,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 							{
 								context.stopGame();
 								hero.getChildAt(0).gotoAndPlay(1);
-								playSound("pancada");
+								playAudio("pancada");
 								break;
 							}
 						}
@@ -6163,7 +6163,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 		{
 			pontuacao.txt.text = pontos + "";
 			if (colect)
-				playSound("sm_coin");
+				playAudio("sm_coin");
 		}
 		
 		// TO RELOAD
@@ -7336,7 +7336,7 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 			
 			context.criaAbertura();
 			
-			playSound("abertura");
+			playAudio("abertura");
 		}
 		
 		this.criaInformacoes = function()
@@ -7419,7 +7419,7 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 		this.criaAbertura();
 		
 		createjs.Touch.enable(stage, true, true);
-		playSound("abertura");
+		playAudio("abertura");
 	}
 	this.frame_19 = function() {
 		this.stop();
