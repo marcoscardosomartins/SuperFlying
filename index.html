@@ -141,13 +141,16 @@ function tick(event)
 }
  
 // phonegap media
-function playPGAudio(src, _loop) {
+function playPGAudio(src) {
     if (media)
         media.release();
-    if (_loop)
-        media = new Media(src, success, error_error, loop);
-    else
-        media = new Media(src, success, error_error);
+    media = new Media(src, success, error_error);
+    media.play();
+}
+    
+function playPGLoop(src) 
+{
+    media = new Media(src, success, error_error, loop);
     media.play();
 }
     
@@ -177,9 +180,12 @@ function playAudio(som, lp)
         media.stop();
     */
     if (lp)
+    {
         currentTheme = som;
-    
-    playPGAudio(getPhoneGapPath() + "sounds/" + som + ".ogg", lp);
+        playPGLoop(getPhoneGapPath() + "sounds/" + som + ".ogg");
+    }
+    else
+        playPGAudio(getPhoneGapPath() + "sounds/" + som + ".ogg");
 }
     
 function stopAudio()
