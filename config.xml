@@ -29,7 +29,7 @@
     <name>Super Flying</name>
 
     <description>
-        Toque na tela para manter o inseto voando e coletar o máximo de moedas possível.
+        Toque na tela para manter seu personagem voando e coletar o máximo de moedas possível.
     </description>
 
     <author href="http://www.noas.com.br" email="marcos@noas.com.br">
@@ -85,8 +85,8 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
-	<gap:plugin name="com.adobe.plugins.fastcanvas" />
-    <gap:plugin name="org.apache.cordova.media" />-->
+	<gap:plugin name="com.adobe.plugins.fastcanvas" />-->
+    <gap:plugin name="org.apache.cordova.media" />
 
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
