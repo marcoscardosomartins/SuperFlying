@@ -66,6 +66,7 @@ var showingCounter = false;
 var showingGameOver = false;
 var cenario = 0;
 var selecionado = "Bee";
+var media;
     
 function init() {
 	canvas = document.getElementById("canvas");
@@ -140,12 +141,22 @@ function tick(event)
 }
  
 // phonegap media
-function playPGAudio(src) {
+function playPGAudio(src, loop) {
     if (media)
         media.release();
-    media = new Media(src, success, error_error);
+    if (_loop)
+        media = new Media(src, success, error_error, loop);
+    else
+        media = new Media(src, success, error_error);
     media.play();
 }
+    
+var loop = function (status) 
+{    
+    if (status === Media.MEDIA_STOPPED) {
+        myMedia.play();
+    }
+};
 
 function success() {
     // ignore
@@ -160,9 +171,15 @@ function getPhoneGapPath() {
     return "/android_asset/www/";
 };
 
-function playAudio(som)
+function playAudio(som, lp)
 {
-    playPGAudio(getPhoneGapPath() + "assets/" + som + ".ogg");
+    playPGAudio(getPhoneGapPath() + "sounds/" + som + ".ogg", lp);
+}
+    
+function stopAudio()
+{
+    if (media)
+        media.stop();
 }
     
 window.onresize = function()

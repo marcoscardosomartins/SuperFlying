@@ -3196,7 +3196,7 @@ p.nominalBounds = new cjs.Rectangle(-50,-50,100,100);
 			updatePoints(pts);
 			showingGameOver = true;
 			//playSoundTag('gameover', true);
-			//playAudio("gameover");
+			playSound("gameover", true);
 			createjs.Tween.get(context, {override:true}).wait(500).to({y:250}, 500, createjs.Ease.quartOut);
 		}
 		
@@ -3214,7 +3214,7 @@ p.nominalBounds = new cjs.Rectangle(-50,-50,100,100);
 			
 			context.parent.reloadTheGame();
 			//createLevelMusic();
-			//fadeOut(currentTheme);
+			stopSound();
 			playAgain.gotoAndPlay("s1");
 		}
 		
@@ -6028,7 +6028,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 			{
 				context.stopGame();
 				hero.getChildAt(0).gotoAndPlay(1);
-				//playAudio("pancada");
+				playSound("pancada");
 				return;
 			}
 		}
@@ -6055,7 +6055,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 							{
 								context.stopGame();
 								hero.getChildAt(0).gotoAndPlay(1);
-								//playAudio("pancada");
+								playSound("pancada");
 								break;
 							}
 						} 
@@ -6065,7 +6065,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 							{
 								context.stopGame();
 								hero.getChildAt(0).gotoAndPlay(1);
-								//playAudio("pancada");
+								playSound("pancada");
 								break;
 							}
 						}
@@ -6162,8 +6162,8 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 		function atualizaPontuacao(colect)
 		{
 			pontuacao.txt.text = pontos + "";
-			/*if (colect)
-				playAudio("sm_coin");*/
+			if (colect)
+				playSound("sm_coin");
 		}
 		
 		// TO RELOAD
@@ -7336,7 +7336,7 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 			
 			context.criaAbertura();
 			
-			//playSoundTag('abertura', true);
+			playSound("abertura", true);
 		}
 		
 		this.criaInformacoes = function()
@@ -7419,7 +7419,7 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 		this.criaAbertura();
 		
 		createjs.Touch.enable(stage, true, true);
-		//playSoundTag('abertura', false);
+		playSound("abertura", true);
 	}
 	this.frame_19 = function() {
 		this.stop();
