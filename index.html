@@ -173,6 +173,9 @@ function getPhoneGapPath() {
 
 function playAudio(som, lp)
 {
+    if (media)
+        media.stop();
+    
     playPGAudio(getPhoneGapPath() + "sounds/" + som + ".ogg", lp);
 }
     
