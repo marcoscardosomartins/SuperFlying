@@ -3196,7 +3196,7 @@ p.nominalBounds = new cjs.Rectangle(-50,-50,100,100);
 			updatePoints(pts);
 			showingGameOver = true;
 			//playSoundTag('gameover', true);
-			playAudio("gameover");
+			//playAudio("gameover");
 			createjs.Tween.get(context, {override:true}).wait(500).to({y:250}, 500, createjs.Ease.quartOut);
 		}
 		
@@ -6028,7 +6028,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 			{
 				context.stopGame();
 				hero.getChildAt(0).gotoAndPlay(1);
-				playAudio("pancada");
+				//playAudio("pancada");
 				return;
 			}
 		}
@@ -6055,7 +6055,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 							{
 								context.stopGame();
 								hero.getChildAt(0).gotoAndPlay(1);
-								playAudio("pancada");
+								//playAudio("pancada");
 								break;
 							}
 						} 
@@ -6065,7 +6065,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 							{
 								context.stopGame();
 								hero.getChildAt(0).gotoAndPlay(1);
-								playAudio("pancada");
+								//playAudio("pancada");
 								break;
 							}
 						}
@@ -6162,8 +6162,8 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 		function atualizaPontuacao(colect)
 		{
 			pontuacao.txt.text = pontos + "";
-			if (colect)
-				playAudio("sm_coin");
+			/*if (colect)
+				playAudio("sm_coin");*/
 		}
 		
 		// TO RELOAD
