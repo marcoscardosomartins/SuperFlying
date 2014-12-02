@@ -3196,7 +3196,7 @@ p.nominalBounds = new cjs.Rectangle(-50,-50,100,100);
 			updatePoints(pts);
 			showingGameOver = true;
 			//playSoundTag('gameover', true);
-			playSound("gameover", true);
+			playSound("gameover");
 			createjs.Tween.get(context, {override:true}).wait(500).to({y:250}, 500, createjs.Ease.quartOut);
 		}
 		
@@ -7336,7 +7336,7 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 			
 			context.criaAbertura();
 			
-			playSound("abertura", true);
+			playSound("abertura");
 		}
 		
 		this.criaInformacoes = function()
@@ -7419,7 +7419,7 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 		this.criaAbertura();
 		
 		createjs.Touch.enable(stage, true, true);
-		playSound("abertura", true);
+		playSound("abertura");
 	}
 	this.frame_19 = function() {
 		this.stop();
