@@ -176,6 +176,9 @@ function playAudio(som, lp)
     if (media)
         media.stop();
     
+    if (lp)
+        currentTheme = som;
+    
     playPGAudio(getPhoneGapPath() + "sounds/" + som + ".ogg", lp);
 }
     
