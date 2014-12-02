@@ -2143,72 +2143,6 @@ p.nominalBounds = new cjs.Rectangle(-29.6,-17.5,59.3,50.8);
 p.nominalBounds = new cjs.Rectangle(-17.5,-17.5,35,35);
 
 
-(lib.fullscreenEstados = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
-
-	// timeline functions:
-	this.frame_0 = function() {
-		this.stop();
-	}
-
-	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(2));
-
-	// Camada 2
-	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#F4BE43").s().p("AhBBDIAAiFIAhAAIAABjIBjAAIAAAig");
-	this.shape.setTransform(-6.8,6.1,0.648,0.648);
-
-	this.shape_1 = new cjs.Shape();
-	this.shape_1.graphics.f("#F4BE43").s().p("AhBBDIAAgiIBiAAIAAhjIAhAAIAACFg");
-	this.shape_1.setTransform(6.7,6.1,0.648,0.648);
-
-	this.shape_2 = new cjs.Shape();
-	this.shape_2.graphics.f("#F4BE43").s().p("AAhBCIAAhiIhiAAIAAgiICDAAIAACEg");
-	this.shape_2.setTransform(6.7,-6.1,0.648,0.648);
-
-	this.shape_3 = new cjs.Shape();
-	this.shape_3.graphics.f("#F4BE43").s().p("AhBBCIAAiEICEAAIAAAiIhjAAIAABig");
-	this.shape_3.setTransform(-6.8,-6.1,0.648,0.648);
-
-	this.shape_4 = new cjs.Shape();
-	this.shape_4.graphics.f("#D35030").s().p("Ah/DXIhchtIARgfIgRg+IAAiFIALAAIAEhFIBQgZID1AAIBjBuIAAD8QAAAcgTATQgUAUgcAAg");
-	this.shape_4.setTransform(3.2,3.5,0.648,0.648);
-
-	this.shape_5 = new cjs.Shape();
-	this.shape_5.graphics.f("#EF5A37").s().p("AjKEOQgbAAgUgUQgTgTgBgcIAAmVQABgcATgTQAUgUAbAAIGUAAQAcAAAUAUQATATAAAcIAAGVQAAAcgTATQgUAUgcAAg");
-	this.shape_5.setTransform(0,0,0.648,0.648);
-
-	this.shape_6 = new cjs.Shape();
-	this.shape_6.graphics.f("#C2492A").s().p("AhBBCIAAiDIAhAAIAABiIBjAAIAAAhg");
-	this.shape_6.setTransform(-6.8,6.1,0.648,0.648);
-
-	this.shape_7 = new cjs.Shape();
-	this.shape_7.graphics.f("#C2492A").s().p("AhBBCIAAghIBiAAIAAhiIAhAAIAACDg");
-	this.shape_7.setTransform(6.7,6.1,0.648,0.648);
-
-	this.shape_8 = new cjs.Shape();
-	this.shape_8.graphics.f("#C2492A").s().p("AAhBCIAAhiIhiAAIAAghICDAAIAACDg");
-	this.shape_8.setTransform(6.7,-6.1,0.648,0.648);
-
-	this.shape_9 = new cjs.Shape();
-	this.shape_9.graphics.f("#C2492A").s().p("AhBBCIAAiDICEAAIAAAhIhjAAIAABig");
-	this.shape_9.setTransform(-6.8,-6.1,0.648,0.648);
-
-	this.shape_10 = new cjs.Shape();
-	this.shape_10.graphics.f("#D35030").s().p("Ah/DXIhchtIARgfIgRg9IAAiGIALAAIAEhEIBQgaID1AAIBjBuIAAD8QAAAcgTATQgUAUgcAAg");
-	this.shape_10.setTransform(3.2,3.5,0.648,0.648);
-
-	this.shape_11 = new cjs.Shape();
-	this.shape_11.graphics.f("#EF5A37").s().p("AjKENQgbAAgUgTQgTgUgBgcIAAmUQABgbATgUQAUgTAbAAIGUAAQAcAAAUATQATAUAAAbIAAGUQAAAcgTAUQgUATgcAAg");
-	this.shape_11.setTransform(0,0,0.648,0.648);
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape}]}).to({state:[{t:this.shape_11},{t:this.shape_10},{t:this.shape_9},{t:this.shape_8},{t:this.shape_7},{t:this.shape_6}]},1).wait(1));
-
-}).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-17.5,-17.5,35,35);
-
-
 (lib.btsound = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
@@ -3261,7 +3195,8 @@ p.nominalBounds = new cjs.Rectangle(-50,-50,100,100);
 		{
 			updatePoints(pts);
 			showingGameOver = true;
-			playSoundTag('gameover', true);
+			//playSoundTag('gameover', true);
+			playAudio("gameover");
 			createjs.Tween.get(context, {override:true}).wait(500).to({y:250}, 500, createjs.Ease.quartOut);
 		}
 		
@@ -3279,7 +3214,7 @@ p.nominalBounds = new cjs.Rectangle(-50,-50,100,100);
 			
 			context.parent.reloadTheGame();
 			//createLevelMusic();
-			fadeOut(currentTheme);
+			//fadeOut(currentTheme);
 			playAgain.gotoAndPlay("s1");
 		}
 		
@@ -6093,7 +6028,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 			{
 				context.stopGame();
 				hero.getChildAt(0).gotoAndPlay(1);
-				playSound("sounds/pancada.mp3");
+				playAudio("pancada");
 				return;
 			}
 		}
@@ -6120,7 +6055,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 							{
 								context.stopGame();
 								hero.getChildAt(0).gotoAndPlay(1);
-								playSound("sounds/pancada.mp3");
+								playAudio("pancada");
 								break;
 							}
 						} 
@@ -6130,7 +6065,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 							{
 								context.stopGame();
 								hero.getChildAt(0).gotoAndPlay(1);
-								playSound("sounds/pancada.mp3");
+								playAudio("pancada");
 								break;
 							}
 						}
@@ -6221,19 +6156,14 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 			if (event.keyCode == 38 || event.keyCode == 32)
 				moveUp = false;
 		}
-		    
-		function playJump()
-		{
-			setTimeout(function() { playSoundTag('jump'); }, 500);
-		}
-		  
+		
 		// END INSECT CONTROL
 		// UPDATE
 		function atualizaPontuacao(colect)
 		{
 			pontuacao.txt.text = pontos + "";
 			if (colect)
-				playSound("sounds/coin.mp3");
+				playAudio("sm_coin");
 		}
 		
 		// TO RELOAD
@@ -6346,86 +6276,6 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-17.5,-17.5,35,50.8);
-
-
-(lib.fullscreenButton = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
-
-	// timeline functions:
-	this.frame_0 = function() {
-		this.stop();
-		
-		var fullscreenSwitch = this;
-		fullscreenSwitch.clickCont = 0;
-		var estados = this.estados;
-		
-		function fullscreenHandler(event) 
-		{
-			fullscreenSwitch.clickCont++;
-			if (createjs.Touch.isSupported() && fullscreenSwitch.clickCont % 2 == 0)
-				return;
-			
-			toggleFullScreen();
-		};
-		
-		// FULLSCREEN
-		function toggleFullScreen() 
-		{
-			if (!document.fullscreenElement &&    // alternative standard method
-				!document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
-				if (document.documentElement.requestFullscreen) {
-					document.documentElement.requestFullscreen();
-				} else if (document.documentElement.msRequestFullscreen) {
-					document.documentElement.msRequestFullscreen();
-				} else if (document.documentElement.mozRequestFullScreen) {
-					document.documentElement.mozRequestFullScreen();
-				} else if (document.documentElement.webkitRequestFullscreen) {
-					document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-				}
-				
-				estados.gotoAndStop(1);
-				
-			} else {
-				if (document.exitFullscreen) {
-					document.exitFullscreen();
-				} else if (document.msExitFullscreen) {
-					document.msExitFullscreen();
-				} else if (document.mozCancelFullScreen) {
-					document.mozCancelFullScreen();
-				} else if (document.webkitExitFullscreen) {
-					document.webkitExitFullscreen();
-				}
-				
-				estados.gotoAndStop(0);
-			}
-			//console.log(canvas.width, window.innerWidth, screen.width)
-			
-			window.scrollTo(0, 1);
-			window.pageYOffset = 0;
-		}
-		
-		function update()
-		{
-			if(window.innerWidth == screen.width) 
-				estados.gotoAndStop(1);
-			else 
-				estados.gotoAndStop(0);
-		}
-		
-		stage.on("tick", update);
-		fullscreenSwitch.on("click", fullscreenHandler);
-	}
-
-	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
-
-	// Camada 3
-	this.estados = new lib.fullscreenEstados();
-
-	this.timeline.addTween(cjs.Tween.get(this.estados).wait(1));
-
-}).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-17.5,-17.5,35,35);
 
 
 (lib.btpause = function(mode,startPosition,loop) {
@@ -7366,7 +7216,6 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 		var context = this;
 		var game = this.game;
 		
-		var fullscreenSwitch = this.fullscreenSwitch;
 		var pause = this.pause;
 		var iniciar = this.iniciar;
 		var ranking = this.ranking;
@@ -7377,9 +7226,6 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 		var btinstrucoes = this.btinstrucoes;
 		var instrucoes;// = this.instrucoes;
 		var informacoes;// = this.informacoes;
-		
-		//instrucoes.cache(0, 0, canvas.width / stage.scaleX, canvas.height / stage.scaleY);
-		//informacoes.cache(0, 0, canvas.width / stage.scaleX, canvas.height / stage.scaleY);
 		
 		var abertura;// = this.abertura;
 		var selecao;// = this.selecao;
@@ -7435,7 +7281,8 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 		this.gotoGame = function()
 		{
 			//createLevelMusic();
-			fadeOut(currentTheme);
+			//fadeOut(currentTheme);
+		
 			context.removeAbertura();
 			//console.log(selecionado);
 			context.gotoAndPlay("jogo");
@@ -7489,7 +7336,7 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 			
 			context.criaAbertura();
 			
-			playSoundTag('abertura', true);
+			//playSoundTag('abertura', true);
 		}
 		
 		this.criaInformacoes = function()
@@ -7572,7 +7419,7 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 		this.criaAbertura();
 		
 		createjs.Touch.enable(stage, true, true);
-		playSoundTag('abertura', false);
+		//playSoundTag('abertura', false);
 	}
 	this.frame_19 = function() {
 		this.stop();
@@ -7589,7 +7436,7 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 
 	// sound button
 	this.audioComponent = new lib.audioComponent();
-	this.audioComponent.setTransform(109.1,47.1,1.547,1.547,0,0,0,0,-0.1);
+	this.audioComponent.setTransform(45,47.1,1.547,1.547,0,0,0,0,-0.1);
 
 	this.timeline.addTween(cjs.Tween.get(this.audioComponent).wait(60));
 
@@ -7599,12 +7446,6 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 	this.pause.visible = false;
 
 	this.timeline.addTween(cjs.Tween.get(this.pause).wait(40).to({visible:true},0).wait(20));
-
-	// fullscreen
-	this.fullscreenSwitch = new lib.fullscreenButton();
-	this.fullscreenSwitch.setTransform(45,47.2,1.547,1.546);
-
-	this.timeline.addTween(cjs.Tween.get(this.fullscreenSwitch).wait(60));
 
 	// informacoes
 	this.btinformacoes = new lib.informacoesButton();

@@ -56,7 +56,7 @@
 var canvas, stage, exportRoot;
 var container, graphics, label;
     // AJUSTES NAS DIMENSÕES
-var keepAspectRatio = true;
+var keepAspectRatio = false;
 var allowSound = true;
 var currentTheme = "abertura";
 var maxVolume = 0.3;
@@ -139,94 +139,7 @@ function tick(event)
     fpsLabel.text = Math.round(createjs.Ticker.getMeasuredFPS()) + " fps";
     stage.update(event);
 }
-    
-function playAudio(id)
-{
-    if (allowSound)
-        return createjs.Sound.play(id);
-}
-    
-function playSound(id, loop) 
-{
-    if (allowSound)
-        return createjs.Sound.play(id, createjs.Sound.INTERRUPT_ANY, 0, 0, loop);
-    return null;
-}
-    
-function playSoundTag(id, setCurrent)
-{
-    if (!allowSound)
-        return;
-    //console.log(id);
-    
-    silence(id);
-    if (id != currentTheme && setCurrent)
-    {
-        document.getElementById(id).volume = 0.0;
-        fadeIn(id);
-        
-        if (setCurrent) 
-            currentTheme = id;
-    }
-    
-    document.getElementById(id).play();
-}
-    
-function createLevelMusic()
-{
-    playSoundTag('level2', true);
-    /*if (cenario == 1)
-        playSoundTag('level1', true);
-    else if (cenario == 2)
-        playSoundTag('level2', true);
-    else if (cenario == 3)
-        playSoundTag('level3', true);
-    else 
-        playSoundTag('level4', true);*/
-}
-
-function silence(id)
-{
-    if (id != 'abertura') fadeOut('abertura');
-    if (id != 'gameover') fadeOut('gameover');
-    //if (id != 'level1') fadeOut('level1');
-    if (id != 'level2') fadeOut('level2');
-    //if (id != 'level3') fadeOut('level3');
-    //if (id != 'level4') fadeOut('level4');
-}
-    
-function pauseSoundTag(id)
-{
-    document.getElementById(id).pause();
-}
-    
-function fadeIn(id)
-{
-    var k = 0;
-    var interval = setInterval(function()
-    {
-        var vol = Math.round((document.getElementById(id).volume + 0.1) * 10) / 10;
-        document.getElementById(id).volume = vol <= maxVolume ? vol : maxVolume;
-        if (++k == maxVolume * 10 || document.getElementById(id).volume == maxVolume)
-            clearInterval(interval);
-    }, 200);
-}
-     
-function fadeOut(id)
-{
-    if (document.getElementById(id).volume <= 0)
-        return;
-    
-    var k = 0;
-    var interval = setInterval(function() 
-    {
-        var vol = Math.round((document.getElementById(id).volume - 0.1) * 10) / 10;
-        document.getElementById(id).volume = vol >= 0 ? vol : 0;
-        if (++k == 10 || document.getElementById(id).volume == 0.0)
-            clearInterval(interval);
-    }, 100);
-}
-/*
+ 
 // phonegap media
 function playPGAudio(src) {
     if (media)
@@ -251,7 +164,7 @@ function getPhoneGapPath() {
 function playAudio(som)
 {
     playPGAudio(getPhoneGapPath() + "assets/" + som + ".ogg");
-}*/
+}
     
 window.onresize = function()
 {
@@ -267,11 +180,6 @@ function onResize()
 	// stage dimensions
 	var ow = 960; // your stage width
 	var oh = 550; // your stage height
-	
-	/*if ((fullscreenSwitch.currentFrame == 1) && (window.innerWidth < window.innerHeight))
-		keepAspectRatio = false;
-	else 
-		keepAspectRatio = true;*/
 	
 	if (keepAspectRatio)
 	{
@@ -295,8 +203,6 @@ function onResize()
 		stage.canvas.height = oh * stage.scaleY;
 	}
 	
-	//bg.cache(0, 0, stage.canvas.width / stage.scaleX, stage.canvas.height / stage.scaleY);
-	// update the stage
 	stage.update();
 }
 </script>
@@ -304,45 +210,5 @@ function onResize()
 
 <body onload="init();" style="background-color:#FFFFFF">
 	<canvas id="canvas" width="960" height="550" style="background-color:#333333"></canvas>
-    <audio id="abertura" loop preload="auto">
-        <source src="sounds/abertura.ogg" type="audio/ogg">
-        <source src="sounds/abertura.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <audio id="gameover" loop preload="auto">
-        <source src="sounds/gameover.ogg" type="audio/ogg">
-        <source src="sounds/gameover.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <audio id="level1" loop preload="auto">
-        <source src="sounds/level1.ogg" type="audio/ogg">
-        <source src="sounds/level1.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <audio id="level2" loop preload="auto">
-        <source src="sounds/level2.ogg" type="audio/ogg">
-        <source src="sounds/level2.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <audio id="level3" loop preload="auto">
-        <source src="sounds/level3.ogg" type="audio/ogg">
-        <source src="sounds/level3.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <audio id="level4" loop preload="auto">
-        <source src="sounds/level4.ogg" type="audio/ogg">
-        <source src="sounds/level4.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <audio id="pancada" preload="auto">
-        <source src="sounds/pancada.ogg" type="audio/ogg">
-        <source src="sounds/pancada.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <audio id="coin" preload="auto">
-        <source src="sounds/sm_coin.ogg" type="audio/ogg">
-        <source src="sounds/sm_coin.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
 </body>
 </html>
