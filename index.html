@@ -163,8 +163,8 @@ function success() {
 }
 
 function error_error(e) {
-    alert('great error');
-    alert(e.message);
+    //alert('great error');
+    //alert(e.message);
 }
 
 function getPhoneGapPath() {
@@ -173,13 +173,13 @@ function getPhoneGapPath() {
 
 function playAudio(som, lp)
 {
-    if (media)
+    /*if (media)
         media.stop();
-    
+    */
     if (lp)
         currentTheme = som;
     
-    playPGAudio(getPhoneGapPath() + "sounds/" + som + ".mp3", lp);
+    playPGAudio(getPhoneGapPath() + "sounds/" + som + ".ogg", lp);
 }
     
 function stopAudio()

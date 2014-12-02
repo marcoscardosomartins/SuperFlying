@@ -3196,7 +3196,7 @@ p.nominalBounds = new cjs.Rectangle(-50,-50,100,100);
 			updatePoints(pts);
 			showingGameOver = true;
 			//playSoundTag('gameover', true);
-			playAudio("gameover", true);
+			playAudio("level1", true);
 			createjs.Tween.get(context, {override:true}).wait(500).to({y:250}, 500, createjs.Ease.quartOut);
 		}
 		
