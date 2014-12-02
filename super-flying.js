@@ -3196,7 +3196,7 @@ p.nominalBounds = new cjs.Rectangle(-50,-50,100,100);
 			updatePoints(pts);
 			showingGameOver = true;
 			//playSoundTag('gameover', true);
-			playAudio("gameover");
+			playAudio("gameover", true);
 			createjs.Tween.get(context, {override:true}).wait(500).to({y:250}, 500, createjs.Ease.quartOut);
 		}
 		
@@ -3214,7 +3214,7 @@ p.nominalBounds = new cjs.Rectangle(-50,-50,100,100);
 			
 			context.parent.reloadTheGame();
 			//createLevelMusic();
-			stopSound();
+			stopAudio();
 			playAgain.gotoAndPlay("s1");
 		}
 		
@@ -6028,7 +6028,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 			{
 				context.stopGame();
 				hero.getChildAt(0).gotoAndPlay(1);
-				playAudio("pancada");
+				playAudio("pancada", false);
 				return;
 			}
 		}
@@ -6055,7 +6055,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 							{
 								context.stopGame();
 								hero.getChildAt(0).gotoAndPlay(1);
-								playAudio("pancada");
+								playAudio("pancada", false);
 								break;
 							}
 						} 
@@ -6065,7 +6065,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 							{
 								context.stopGame();
 								hero.getChildAt(0).gotoAndPlay(1);
-								playAudio("pancada");
+								playAudio("pancada", false);
 								break;
 							}
 						}
@@ -6163,7 +6163,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 		{
 			pontuacao.txt.text = pontos + "";
 			if (colect)
-				playAudio("sm_coin");
+				playAudio("sm_coin", false);
 		}
 		
 		// TO RELOAD
@@ -7282,7 +7282,7 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 		{
 			//createLevelMusic();
 			//fadeOut(currentTheme);
-		
+			stopAudio();
 			context.removeAbertura();
 			//console.log(selecionado);
 			context.gotoAndPlay("jogo");
@@ -7336,7 +7336,7 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 			
 			context.criaAbertura();
 			
-			playAudio("abertura");
+			playAudio("abertura", true);
 		}
 		
 		this.criaInformacoes = function()
@@ -7419,7 +7419,7 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 		this.criaAbertura();
 		
 		createjs.Touch.enable(stage, true, true);
-		playAudio("abertura");
+		playAudio("abertura", true);
 	}
 	this.frame_19 = function() {
 		this.stop();
