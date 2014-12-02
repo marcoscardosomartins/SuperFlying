@@ -179,13 +179,25 @@ function playAudio(som, lp)
     if (lp)
         currentTheme = som;
     
-    playPGAudio(getPhoneGapPath() + "sounds/" + som + ".ogg", lp);
+    playPGAudio(getPhoneGapPath() + "sounds/" + som + ".mp3", lp);
 }
     
 function stopAudio()
 {
     if (media)
         media.stop();
+}
+       
+function pauseAudio()
+{
+    if (media)
+        media.pause();
+}
+       
+function continueAudio()
+{
+    if (media)
+        media.play();
 }
     
 window.onresize = function()

@@ -6347,9 +6347,6 @@ p.nominalBounds = new cjs.Rectangle(-17.5,-17.5,35,35);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		//var music = playSound("music", 1000);
-		//music.setVolume(0.5);
-		
 		var context = this;
 		var sons = this.sons;
 		
@@ -6361,18 +6358,14 @@ p.nominalBounds = new cjs.Rectangle(-17.5,-17.5,35,35);
 			
 			if (sons.currentFrame == 0)
 			{
-				//context.parent.enableSounds = false;
 				allowSound = false;
-				//music.setVolume(0.0);
-				pauseSoundTag(currentTheme);
+				pauseAudio();
 				sons.gotoAndStop(1);
 			}
 			else
 			{
-				//context.parent.enableSounds = true;
 				allowSound = true;
-				//music.setVolume(0.5);
-				playSoundTag(currentTheme);
+				continueAudio();
 				sons.gotoAndStop(0);
 			}
 		}
