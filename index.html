@@ -134,11 +134,8 @@ function handleComplete()
     exportRoot = new lib.superflying();
     
     abertura = new Media(getPhoneGapPath() + "sounds/abertura.ogg", success, error_error, loop);
-    abertura.setVolume(0.4);
     gameover = new Media(getPhoneGapPath() + "sounds/gameover.ogg", success, error_error, loop);
-    gameover.setVolume(0.2);
     level = new Media(getPhoneGapPath() + "sounds/level2.ogg", success, error_error, loop);
-    level.setVolume(0.2);
     
     stage.addChild(exportRoot);
 	stage.update();
@@ -175,6 +172,10 @@ function playPGLoop(nome)
         media = level;
     
     media.play();
+    if (nome == "abertura")
+        level.setVolume(0.4);
+    else
+        level.setVolume(0.2);
 }
     
 var loop = function (status) 
