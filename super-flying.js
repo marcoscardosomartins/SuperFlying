@@ -6029,7 +6029,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 			{
 				context.stopGame();
 				hero.getChildAt(0).gotoAndPlay(1);
-				playAudio("pancada", false);
+				//playAudio("pancada", false);
 				return;
 			}
 		}
@@ -6056,7 +6056,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 							{
 								context.stopGame();
 								hero.getChildAt(0).gotoAndPlay(1);
-								playAudio("pancada", false);
+								//playAudio("pancada", false);
 								break;
 							}
 						} 
@@ -6066,7 +6066,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 							{
 								context.stopGame();
 								hero.getChildAt(0).gotoAndPlay(1);
-								playAudio("pancada", false);
+								//playAudio("pancada", false);
 								break;
 							}
 						}
@@ -6163,8 +6163,8 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,550);
 		function atualizaPontuacao(colect)
 		{
 			pontuacao.txt.text = pontos + "";
-			if (colect)
-				playAudio("sm_coin", false);
+			/*if (colect)
+				playAudio("sm_coin", false);*/
 		}
 		
 		// TO RELOAD
@@ -7327,7 +7327,7 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 			
 			context.criaAbertura();
 			
-			playAudio("abertura", true);
+			//playAudio("abertura", true);
 		}
 		
 		this.criaInformacoes = function()
@@ -7407,7 +7407,7 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 		this.criaAbertura();
 		
 		createjs.Touch.enable(stage, true, true);
-		playAudio("abertura", true);
+		//playAudio("abertura", true);
 	}
 	this.frame_19 = function() {
 		this.stop();

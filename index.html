@@ -139,7 +139,7 @@ function tick(event)
     fpsLabel.text = Math.round(createjs.Ticker.getMeasuredFPS()) + " fps";
     stage.update(event);
 }
- 
+/*
 // phonegap media
 function playPGAudio(src) {
     if (media)
@@ -178,14 +178,14 @@ function playAudio(som, lp)
 {
     /*if (media)
         media.stop();
-    */
+    *
     /*if (lp)
     {
         currentTheme = som;
         playPGLoop(getPhoneGapPath() + "sounds/" + som + ".ogg");
     }
     else
-        playPGAudio(getPhoneGapPath() + "sounds/" + som + ".ogg");*/
+        playPGAudio(getPhoneGapPath() + "sounds/" + som + ".ogg");*
     playPGAudio(getPhoneGapPath() + "sounds/" + som + ".ogg");
 }
     
@@ -205,7 +205,7 @@ function continueAudio()
 {
     if (media)
         media.play();
-}
+}*/
     
 window.onresize = function()
 {
