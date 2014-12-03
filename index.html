@@ -92,6 +92,21 @@ function init() {
 	loader.addEventListener("fileload", handleFileLoad);
 	loader.addEventListener("complete", handleComplete);
 	loader.loadManifest(lib.properties.manifest);
+
+    window.addEventListener("focus", focusHandler);
+    window.addEventListener("blur", blurHandler);
+}
+     
+function focusHandler(event)
+{
+    if (media)
+        media.play();
+}
+ 
+function blurHandler(event)
+{
+    if (media)
+        media.pause();
 }
 
 function createCirclePreloader(prog)
@@ -147,9 +162,6 @@ function tick(event)
 {
     fpsLabel.text = Math.round(createjs.Ticker.getMeasuredFPS()) + " fps";
     stage.update(event);
-    
-    if (createjs.Ticker.getMeasuredFPS() < 5 && media)
-        media.stop();
 }
  
 // phonegap media
