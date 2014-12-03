@@ -94,7 +94,7 @@ function init() {
 	loader.loadManifest(lib.properties.manifest);
 
     document.addEventListener("backbutton", goBack, false);
-    document.addEventListener("homebutton", goBack, false);
+    document.addEventListener("menubutton", goBack, false);
     //window.addEventListener("focus", focusHandler);
     //window.addEventListener("blur", blurHandler);
 }
@@ -103,6 +103,8 @@ function goBack()
 {
     if (media)
         media.pause();
+    
+    navigator.app.exitApp();
 }
      
 /*function focusHandler(event)
