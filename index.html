@@ -179,13 +179,14 @@ function playAudio(som, lp)
     /*if (media)
         media.stop();
     */
-    if (lp)
+    /*if (lp)
     {
         currentTheme = som;
         playPGLoop(getPhoneGapPath() + "sounds/" + som + ".ogg");
     }
     else
-        playPGAudio(getPhoneGapPath() + "sounds/" + som + ".ogg");
+        playPGAudio(getPhoneGapPath() + "sounds/" + som + ".ogg");*/
+    playPGAudio(getPhoneGapPath() + "sounds/" + som + ".ogg");
 }
     
 function stopAudio()
