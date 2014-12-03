@@ -147,6 +147,9 @@ function tick(event)
 {
     fpsLabel.text = Math.round(createjs.Ticker.getMeasuredFPS()) + " fps";
     stage.update(event);
+    
+    if (createjs.Ticker.getMeasuredFPS() < 5 && media)
+        media.stop();
 }
  
 // phonegap media
@@ -159,8 +162,6 @@ function playPGAudio(src) {
     
 function playPGLoop(nome) 
 {
-    //media = new Media(src, success, error_error, loop);
-    //media.play();
     if (media)
         media.stop();
     
@@ -173,7 +174,7 @@ function playPGLoop(nome)
     
     media.play();
     if (nome == "abertura")
-        media.setVolume('0.2');
+        media.setVolume('0.3');
     else
         media.setVolume('0.1');
 }
