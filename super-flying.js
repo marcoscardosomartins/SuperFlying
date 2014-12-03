@@ -3196,7 +3196,8 @@ p.nominalBounds = new cjs.Rectangle(-50,-50,100,100);
 			updatePoints(pts);
 			showingGameOver = true;
 			//playSoundTag('gameover', true);
-			playAudio("level1", true);
+			//playAudio("level1", true);
+			continueAudio();
 			createjs.Tween.get(context, {override:true}).wait(500).to({y:250}, 500, createjs.Ease.quartOut);
 		}
 		
@@ -3214,7 +3215,7 @@ p.nominalBounds = new cjs.Rectangle(-50,-50,100,100);
 			
 			context.parent.reloadTheGame();
 			//createLevelMusic();
-			stopAudio();
+			pauseAudio();
 			playAgain.gotoAndPlay("s1");
 		}
 		
@@ -7275,7 +7276,7 @@ p.nominalBounds = new cjs.Rectangle(-116.9,-443.4,2037,1246.9);
 		{
 			//createLevelMusic();
 			//fadeOut(currentTheme);
-			stopAudio();
+			pauseAudio();
 			context.removeAbertura();
 			//console.log(selecionado);
 			context.gotoAndPlay("jogo");
