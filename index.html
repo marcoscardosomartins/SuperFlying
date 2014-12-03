@@ -93,11 +93,11 @@ function init() {
 	loader.addEventListener("complete", handleComplete);
 	loader.loadManifest(lib.properties.manifest);
 
-    document.addEventListener("backbutton", goBack, false);
+    /*document.addEventListener("backbutton", goBack, false);
     document.addEventListener("focus", focusHandler);
-    document.addEventListener("blur", blurHandler);
+    document.addEventListener("blur", blurHandler);*/
 }
-    
+/*    
 function goBack()
 {
     if (media)
@@ -115,7 +115,7 @@ function blurHandler(event)
     if (media)
         media.pause();
 }
-
+*/
 function createCirclePreloader(prog)
 {
     container = Container.createContainer("preloader", {width:0, height:0, x:(canvas.width / stage.scaleX) * 0.5, y:(canvas.height / stage.scaleX) * 0.5});
