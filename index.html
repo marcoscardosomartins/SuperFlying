@@ -94,20 +94,17 @@ function init() {
 	loader.loadManifest(lib.properties.manifest);
 
     document.addEventListener("backbutton", goBack, false);
-    document.addEventListener("menubutton", goBack, false);
-    //window.addEventListener("focus", focusHandler);
-    //window.addEventListener("blur", blurHandler);
+    document.addEventListener("focus", focusHandler);
+    document.addEventListener("blur", blurHandler);
 }
     
 function goBack()
 {
     if (media)
         media.pause();
-    
-    navigator.app.exitApp();
 }
      
-/*function focusHandler(event)
+function focusHandler(event)
 {
     if (media)
         media.play();
@@ -117,7 +114,7 @@ function blurHandler(event)
 {
     if (media)
         media.pause();
-}*/
+}
 
 function createCirclePreloader(prog)
 {
