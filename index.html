@@ -66,7 +66,12 @@ var showingCounter = false;
 var showingGameOver = false;
 var cenario = 0;
 var selecionado = "Bee";
+    
 var media;
+var short;
+var abertura;
+var gameover;
+var level;
     
 function init() {
 	canvas = document.getElementById("canvas");
@@ -128,6 +133,10 @@ function handleComplete()
 	
     exportRoot = new lib.superflying();
     
+    abertura = new Media(getPhoneGapPath() + "sounds/abertura.ogg", success, error_error, loop);
+    gameover = new Media(getPhoneGapPath() + "sounds/gameover.ogg", success, error_error, loop);
+    level = new Media(getPhoneGapPath() + "sounds/level2.ogg", success, error_error, loop);
+    
     stage.addChild(exportRoot);
 	stage.update();
     
@@ -142,15 +151,26 @@ function tick(event)
  
 // phonegap media
 function playPGAudio(src) {
-    if (media)
-        media.release();
-    media = new Media(src, success, error_error);
-    media.play();
+    if (short)
+        short.release();
+    short = new Media(src, success, error_error);
+    short.play();
 }
     
-function playPGLoop(src) 
+function playPGLoop(nome) 
 {
-    media = new Media(src, success, error_error, loop);
+    //media = new Media(src, success, error_error, loop);
+    //media.play();
+    if (media)
+        media.stop();
+    
+    if (nome == "abertura")
+        media = abertura;
+    else if (nome == "gameover")
+        media = gameover;
+    else 
+        media = level;
+    
     media.play();
 }
     
@@ -176,13 +196,10 @@ function getPhoneGapPath() {
 
 function playAudio(som, lp)
 {
-    /*if (media)
-        media.stop();
-    */
     if (lp)
     {
         currentTheme = som;
-        playPGLoop(getPhoneGapPath() + "sounds/" + som + ".ogg");
+        playPGLoop(som);
     }
     else
         playPGAudio(getPhoneGapPath() + "sounds/" + som + ".ogg");
