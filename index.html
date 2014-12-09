@@ -72,9 +72,12 @@ var short;
 var abertura;
 var gameover;
 var level;
+var gl;
     
 function init() {
 	canvas = document.getElementById("canvas");
+    gl = initWebGL(canvas);
+    
 	images = images||{};
     stage = new createjs.Stage(canvas);
     
@@ -92,30 +95,26 @@ function init() {
 	loader.addEventListener("fileload", handleFileLoad);
 	loader.addEventListener("complete", handleComplete);
 	loader.loadManifest(lib.properties.manifest);
-
-    //document.addEventListener("backbutton", goBack, false);
-    //window.addEventListener("focus", focusHandler);
-    //window.addEventListener("blur", blurHandler);
 }
-/*    
-function goBack()
-{
-    if (media)
-        media.pause();
+    
+function initWebGL(canvas) {
+  gl = null;
+  
+  try {
+    // Try to grab the standard context. If it fails, fallback to experimental.
+    gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+  }
+  catch(e) {}
+  
+  // If we don't have a GL context, give up now
+  if (!gl) {
+    alert("Unable to initialize WebGL. Your browser may not support it.");
+    gl = null;
+  }
+  
+  return gl;
 }
-     
-function focusHandler(event)
-{
-    if (media)
-        media.play();
-}
- 
-function blurHandler(event)
-{
-    if (media)
-        media.pause();
-}*/
-
+    
 function createCirclePreloader(prog)
 {
     container = Container.createContainer("preloader", {width:0, height:0, x:(canvas.width / stage.scaleX) * 0.5, y:(canvas.height / stage.scaleX) * 0.5});
@@ -205,14 +204,8 @@ var loop = function (status)
     }
 };
 
-function success() {
-    // ignore
-}
-
-function error_error(e) {
-    //alert('great error');
-    //alert(e.message);
-}
+function success() {}
+function error_error(e) {}
 
 function getPhoneGapPath() {
     return "/android_asset/www/";
