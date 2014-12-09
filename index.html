@@ -72,11 +72,11 @@ var short;
 var abertura;
 var gameover;
 var level;
-var gl;
+//var gl;
     
 function init() {
 	canvas = document.getElementById("canvas");
-    gl = initWebGL(canvas);
+    //gl = initWebGL(canvas);
     
 	images = images||{};
     stage = new createjs.Stage(canvas);
@@ -97,7 +97,7 @@ function init() {
 	loader.loadManifest(lib.properties.manifest);
 }
     
-function initWebGL(canvas) {
+/*function initWebGL(canvas) {
   gl = null;
   
   try {
@@ -113,7 +113,7 @@ function initWebGL(canvas) {
   }
   
   return gl;
-}
+}*/
     
 function createCirclePreloader(prog)
 {
